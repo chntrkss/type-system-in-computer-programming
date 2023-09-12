@@ -37,4 +37,4 @@ Derleyici tarafından belirtilen tür sistemlerinin sağladğı avantajlar şunl
 
 -   **_Optimizasyon_** - Statik tür denetimi derleme zamanında yararlı bilgiler sağlayabilir. Örneğin, bir tür, bir değerin bellekte dört baytın katları olarak hizanlamasını gerektiriyorsa, derleyici daha verimli makine komutları kullanabilir.
 
--   **_Güvenlik_** - Bir tür sistemi derleyicinin, anlamsız ve geçersiz kodun tespit etmesini sağlar. Örneğin kurallar bir integer'ın string'e nasıl bölüneceği belirtmediğinde, 3/"Merhaba, Dünya" ifadesini geçersiz olarak tanımlayabiliriz. Güçlü türleme daha fazla güvenlik sunar ancak tam tür güvenliğini garanti edemez.
+-   **_Güvenlik_** - Bir tür sistemi derleyicinin, anlamsız veya geçersiz kodu tespit etmesini sağlar. Örneğin kurallar bir integer'ın string'e nasıl bölüneceğini belirtmediğinde, `3/"Merhaba, Dünya"` ifadesini geçersiz olarak tanımlayabiliriz. Güçlü türleme daha fazla güvenlik sunar ancak tam tür güvenliğini garanti edemez.

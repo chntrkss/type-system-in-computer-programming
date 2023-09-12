@@ -36,4 +36,4 @@ Advantages provided by compiler-specified type systems include:
 
 -   **_Optimization_** - Static type checking may provide useful compile-time information. For examples, if a type require that a value must align in memory at a multiple of four bytes, the compiler may be able to use more efficient machine instructions.
 
--   **_Safety_** - A type system enables the compiler to detect meaningless and invalid code. For examples, we can identify an expression 3/"Hello, World" as invalid, when the rules do not specify how to divide an integer by a string. Strong typing offers more safety, but cannot guarantee complete type safety.
+-   **_Safety_** - A type system enables the compiler to detect meaningless and invalid code. For examples, we can identify an expression 3`/"Hello, World"` as invalid, when the rules do not specify how to divide an integer by a string. Strong typing offers more safety, but cannot guarantee complete type safety.
