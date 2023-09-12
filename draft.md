@@ -28,3 +28,13 @@ Bir programlama dili derleyicisi bir tür denetçisi tarafından daha da fazla p
 
 İster derleyici tarafından otomatikleştirilsin ister bir programcı tarafından belirtilsin, bir tür sistemi, tür sistemi kurallarının dışına çıkıldığında program davranışını yasadışı hale getirir.
 Programcı tarafından belirtilen tür sistemlerinin sağladığı avantajlar şunlardır:
+
+-   **_Soyutlama (veya modülerlik)_** - Türler, programcıların düşük seviye uygulama ile uğraşmadan, bit veya bayttan daha yüksek bir seviyede düşünmelerini sağlar. Örneğin programcılar bir string'i yalnızca bir bayt array'i yerine bir karakter değerleri kümesi olarak düşünmeye başlayabilir. Daha da yukarıda, türler programcıların herhangi bir boyutlu iki alt sistem arasındaki arayüzleri düşünmelerini ve ifade etmelerini sağlar. Bu, alt sistemlerin birlikte çalışabilirliği için gereken tanımların bu iki alt sistem iletişim kurduğunda tutarlı kalması için daha fazla yerelleştirme düzeyi sağlar.
+
+-   **_Dokümantasyon_** - Daha etkileyici tür sistemlerinde, türler programcının amacını açıklayan bir dokümantasyon biçimi olarak hizmet edebilir. Örneğin, bir programcı bir fonksiyonu timestamp (zaman damgası) türü olarak geri döndürüyor olarak bildirirse, zaman damgası türü kodun daha derinlerinde bir integer türü olarak açıkça bildirilebildiğinde bu fonksiyonu belgeler.
+
+Derleyici tarafından belirtilen tür sistemlerinin sağladğı avantajlar şunlardır:
+
+-   **_Optimizasyon_** - Statik tür denetimi derleme zamanında yararlı bilgiler sağlayabilir. Örneğin, bir tür, bir değerin bellekte dört baytın katları olarak hizanlamasını gerektiriyorsa, derleyici daha verimli makine komutları kullanabilir.
+
+-   **_Güvenlik_** - Bir tür sistemi derleyicinin, anlamsız ve geçersiz kodun tespit etmesini sağlar. Örneğin kurallar bir integer'ın string'e nasıl bölüneceği belirtmediğinde, 3/"Merhaba, Dünya" ifadesini geçersiz olarak tanımlayabiliriz. Güçlü türleme daha fazla güvenlik sunar ancak tam tür güvenliğini garanti edemez.

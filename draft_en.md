@@ -27,3 +27,13 @@ When a programming language evolves a more elaborate type system, it gains more 
 A programming language compiler can also implement a dependent type or an effect system, which enables even more program specifications to be verified by a type checker. Beyond simple value-type pairs a virtual "region" of code is associated with an "effect" component describing what is being done with what, and enabling for example to "throw" an error report. Thus the symbolic system may be a type and effect system, which endows it with more safety checking than type checking alone.
 
 Whether automated by the compiler or specified by a programmer, a type system makes program behavior illegal if outside the type-system rules. Advantages provided by programmer-specified type systems included:
+
+-   **_Abstraction (or Modularity)_** - Types enables programmers to think at a higher level than the bit or byte, not bothering with low-level implementation. For example, programmers can begin think of a string as a set of character values instead of as a mere array of bytes. Higher still, types enable programmers to think about and express interfaces between two of any-sized subsystems. This enables more levels of localization so that the definitions required for interoperability of the subsystems remain consisten when those two subsystems communicate.
+
+-   **_Documentation_** - In more expressive type systems, types can serve as a form of documentation clarifying the intent of the programmer. For example, if a programmer declares a function as returning a timestamp type, this documents the function when the timestamp type can be explicitly declared deeper in the code to be an integer type.
+
+Advantages provided by compiler-specified type systems include:
+
+-   **_Optimization_** - Static type checking may provide useful compile-time information. For examples, if a type require that a value must align in memory at a multiple of four bytes, the compiler may be able to use more efficient machine instructions.
+
+-   **_Safety_** - A type system enables the compiler to detect meaningless and invalid code. For examples, we can identify an expression 3/"Hello, World" as invalid, when the rules do not specify how to divide an integer by a string. Strong typing offers more safety, but cannot guarantee complete type safety.
