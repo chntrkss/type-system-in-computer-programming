@@ -1,10 +1,12 @@
+# Bilgisayar programlamada tür sistemleri
+
 Bilgisayar programlamada tür/tip sistemi, her "terime" tür adı verilen bir özellik (örneğin, integer, floating point, string) atayan bir dizi kuraldan oluşan mantıksal bir sistemdir. Genellikle terimler, değişkenler, ifadeler, fonksiyonlar veya modüller gibi bir bilgisayar programının çeşitli yapılarıdır. Bir tür sistemi, bir terim üzerinde gerçekleştirilebilecek işlemleri belirler. Değişkenler için, tür sistemi o terim için izin verilen değerlerini belirler. Tür sistemleri programcının cebirsel veri türleri, veri yapıları veya diğer bileşenler için kullandığı örtük kategorileri resmileştirir ve uygular.
 
 Tür sistemleri genellikle programlama dillerinin bir parçası olarak belirtilir ve yorumlayıcılara ve derleyicilere yerleştirilir, ancak bir dilin tür sistemi dilin orjinal tür söz dizimini ve grammar'ini kullanarak ek kontroller gerçekleştiren isteğe bağlı araçlarla genişletilebilir.
 
 Bir programlama dilindeki tür sisteminin temel amacı, bilgisayar programlarında tür hatalarından kaynaklanan hata olasılıklarını azaltmaktır. Söz konusu tür sistemi, neyin tür hatası olduğunu belirler, ancak genel olarak amaç, belirli bir değer bekleyen işlemlerin, bu işlemin mantıklı olmadığı değerlerle kullanılmasını önlemektir (geçerlilik hataları). Tür sistemleri, bir bilgisayar programının farklı parçaları arasındaki arayüzlerin tanımlanmasına ve ardından bu parçaların tutarlı bir şekilde bağlandığının kontrol edilmesine olanak tanır. Bu kontrol etme, statik olarak (compile time'da), dinamik olarak (run time'da) ya da her ikisinin bir kombinasyonu olarak gerçekleşebilir. Tür sistemleri, iş kurallarını ifade etme, belirli derleyici optimizasyonlarını mümkün kılma, çoklu gönderime izin verme ve bir tür dokümantasyon sağlama gibi başka amaçları da vardır.
 
-### Kullanıma Genel Bakış
+## Kullanıma Genel Bakış
 
 Basit bir tür sistemine örnek olarak C dili verilebilir. Bir C programının bölümleri fonksiyon tanımlarıdır. Bir fonksiyon başka bir fonksiyon tarafından çağrılır. Bir fonksiyonun arayüzü, fonksiyonun adını ve fonksiyonun koduna aktarılan parametrelerin bir listesini belirtir. Çağrılan bir fonksiyonun kodu, çağrılan fonksiyonun adını ve ona aktarılacak değerleri tutan değişkenlerin adlarını belirtir. Yürütme sırasında değerler geçici depolama alanına yerleştirilir ardından yürütme, çağrılan fonksiyonun koduna atlar. Çağrılan fonksiyonun kodu değerlere erişir ve bunları kullanır. Fonksiyonların içindeki talimatlar bir integer değer alınacağı varsayımıyla yazılmışsa, ancak çağıran kod floating-point bir değer geçtiyse, çağrılan fonksiyon tarafından yanlış sonuç hesaplanacaktır. C derleyicisi, bir fonksiyona aktarılan argümanların türlerini, fonksiyonun tanımında bildirilen parametrelerin türlerine göre kontrol eder. Türler eşleşmezse, derleyici bir compile-time hatası veya uyarısı atar.
 
@@ -12,7 +14,7 @@ Bir derleyici ayrıca bir değerin statik türünü, ihtiyaç duyduğu depolama 
 
 Tür kısıtlamalarının derinliği ve değerlendirme şekli, dilin türlemesini etkiler. Bir programlama dili, tür polimorfizmi durumunda, bir işlemi her tür için çeşitli çözümlerle ilişkilendirebilir. Tür teorisi, tür sistemlerinin incelenmesidir. Integer ve string'ler gibi bazı programlama dillerinin somut türleri, bilgisayar mimarisi, derleyici uygulaması ve dil tasarımı gibi pratik konulara bağlıdır.
 
-### Temelleri
+## Temelleri
 
 Resmi olarak tür teorisi, tür sistemlerini inceler. Bir programlama dili, ister compile-time'da ister run-time'da olsun, elle açıklanmış veya otomatik olarak çıkarılmış tür sistemini kullanarak tür kontrolü yapma olanağına sahip olmalıdır. Mark Manasse'nin kısaca ifade ettiği gibi:
 
@@ -38,3 +40,11 @@ Derleyici tarafından belirtilen tür sistemlerinin sağladğı avantajlar şunl
 -   **_Optimizasyon_** - Statik tür denetimi derleme zamanında yararlı bilgiler sağlayabilir. Örneğin, bir tür, bir değerin bellekte dört baytın katları olarak hizanlamasını gerektiriyorsa, derleyici daha verimli makine komutları kullanabilir.
 
 -   **_Güvenlik_** - Bir tür sistemi derleyicinin, anlamsız veya geçersiz kodu tespit etmesini sağlar. Örneğin kurallar bir integer'ın string'e nasıl bölüneceğini belirtmediğinde, `3/"Merhaba, Dünya"` ifadesini geçersiz olarak tanımlayabiliriz. Güçlü türleme daha fazla güvenlik sunar ancak tam tür güvenliğini garanti edemez.
+
+### Tür Hataları
+
+Tür hatası, bir programın geliştirilmesinin birçok aşamasında ortaya çıkabilen istenmeyen bir durumdur. Bu nedenle tür sisteminde hatanın tespiti için bir kolaylığa ihtiyaç vardır. Haskell gibi tür çıkarımının otomatikleştirildiği bazı dillerde, hatanın tespit edilmesine yardımcı olmak için derleyicinin lint'i mevcut olabilir.
+
+Tür güvenliği, program doğruluğuna katkıda bulunur, ancak yalnızca tür kontrolünün kendisini, karar verilemez bir problem haline getirme pahasına doğruluğu garanti edebilir (Halting probleminde olduğu gibi). Otomatik tür denetime sahip bir tür sisteminde, bir programın hatalı çalıştığı ancak hiçbir derleyici hatası üretmediği ortaya çıkabilir. Sıfıra bölme güvenli olmayan ve yanlış bir işlemdir. ancak yalnızca derleyici zamanında çalışan bir tür denetleyicisi çoğu dilde sıfıra bölme işlemini taramaz. Bu bölme işlemi runtime hatası olarak ortaya çıkar. Bu kusurların yokluğunu kanıtlamak için toplu olarak program analizleri olarak bilinen diğer türden biçimsel yöntemler yaygın olarak kullanılmaktadır. Alternatif olarak, bağımlı türlü dillerde olduğu gibi yeterince anlamlı bir tür sistemi bu tür hataları önleyebilir (örneğin, sıfır olmayan sayıların türünü ifade etmek). Buna ek olarak yazılım testi, böyle bir tür denetleyicisinin tespit edemeyeceği hataları bulmak için deneysel bir yöntemdir.
+
+[Orjinal Makale](https://en.wikipedia.org/wiki/Type_system)
